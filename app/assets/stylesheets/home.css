@@ -1,0 +1,83 @@
+
+
+
+.days{
+    position: relative;
+    left: 800px;
+    top: -60px;
+}
+
+
+.table1{
+    position: relative;
+    top: -30px;
+    
+}
+
+.table2{
+    position: relative;
+    top: -20px;
+}
+
+.table3{
+    position: relative;
+    top: -10px;
+}
+
+.table4{
+    position: relative;
+}
+
+.table5{
+    position: relative;
+    top: 10px;
+}
+
+.table6{
+    position: relative;
+    top: 20px;
+}
+
+.table7{
+    position: relative;
+    top: -73px;
+    left: 450px;
+}
+
+.table8{
+    position: relative;
+    top: -271px;
+    left: 450px;
+}
+
+.table9{
+    position: relative;
+    top: -469px;
+    left: 450px;
+}
+
+.table10{
+    position: relative;
+    top: -665px;
+    left: 450px;
+}
+
+.table11{
+    position: relative;
+    top: -862px;
+    left: 450px;
+}
+
+.tablesum{
+    position: relative;
+    top: -1020px;
+    left: 1000px;
+}
+
+.reserve{
+    position: relative;
+    width: 1000px;
+    top: -100px;
+    left: 1100px;
+}
+

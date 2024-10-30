@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>田川伊田駅舎ホテル 予約表</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <h1>田川伊田駅舎ホテル 予約表</h1>
+
+  <div class="days">
+    <%= date_field_tag :date %>
+    <%= button_tag "assign", onclick: "assign_button()" %>
+    <%= button_tag "予約追加", onclick: "click3()" %>
+    <%= button_tag "キャンセル/変更", onclick: "assign_delete()" %>
+    <%= button_tag "設定", onclick: "host_setting()" %>
+  </div>
+
+  <div class="reserve"></div>
+
+  <% room_colors = {
+    "1" => "4682b4",
+    "2" => "4682b4",
+    "3" => "4682b4",
+    "4" => "3cb371",
+    "5" => "3cb371",
+    "6" => "fa8072",
+    "7" => "fa8072",
+    "8" => "3cb371",
+    "9" => "3cb371",
+    "10" => "4682b4",
+    "11" => "4682b4"
+  } %>
+
+  <% (1..11).each do |room_number| %>
+    <div class="table<%= room_number %>">
+      <table border="2" width="420">
+        <tr align="center">
+          <td rowspan="3" width="20%" bgcolor="<%= room_colors[room_number.to_s] %>"><%= room_number %>号室</td>
+          <td width="10%">名前</td>
+          <td colspan="2" width="50%"><span id="table<%= room_number %>_name"></span></td>
+          <td width="10">人数</td>
+          <td width="10"><span id="table<%= room_number %>_number"></span></td>
+        </tr>
+        <tr align="center">
+          <td colspan="1">時間</td>
+          <td width="20"><span id="table<%= room_number %>_time"></span></td>
+          <td width="10" colspan="3"><span id="table<%= room_number %>_daynumber">拍</span></td>
+        </tr>
+        <tr align="center">
+          <td colspan="2"><span id="table<%= room_number %>_price">円</span></td>
+          <td>決済方法</td>
+          <td colspan="2">
+            <%= select_tag "way#{room_number}",
+              options_for_select([
+                ["", "0"],
+                ["クレジット", "1"],
+                ["事前支払い", "2"],
+                ["PayPay", "3"],
+                ["現金", "4"]
+              ]),
+              id: "sum_way#{room_number}"
+            %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+
+  <div class="tablesum">
+    <table border="2" width="220">
+      <% [
+        ["総売上", "total_price"],
+        ["事前支払い売上", "before_price"],
+        ["PayPay売上", "paypay_price"],
+        ["現金売上", "money_price"],
+        ["クレジット売上", "credit_price"],
+        ["宿泊税", "tax_price"],
+        ["人数", "number_price"],
+        ["客単価", "numberof_price"]
+      ].each do |label, id| %>
+        <tr align="center">
+          <td><%= label %></td>
+          <td><span id="<%= id %>"></span></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>
+</html>
