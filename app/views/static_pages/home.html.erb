@@ -13,8 +13,8 @@
   <div class="days">
     <%= date_field_tag :date %>
     <%= button_tag "assign", onclick: "assign_button()" %>
-    <%= button_tag "予約追加", onclick: "click3()" %>
-    <%= button_tag "キャンセル/変更", onclick: "assign_delete()" %>
+    <%= button_to "予約追加", onclick: "click3()" %>
+    <%= button_to "キャンセル/変更", new_reservation_path, method: :get %>
     <%= button_tag "設定", onclick: "host_setting()" %>
   </div>
 
